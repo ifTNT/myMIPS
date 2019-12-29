@@ -1,0 +1,18 @@
+//Read-only instruction memory that takes address and output cooresponding instruction.
+module instructionMemory
+	parameter dataWidth = 32;
+	parameter size = 32;
+	
+	input [size-1:0] addr;
+	output [dataWidth-1:0] instruction;
+	
+	reg [size-1:0] addr;
+	reg [dataWidth-1:0] instruction;
+	
+	always@(addr) begin
+		case(addr)
+			case 0: instruction=32'b00000000000000111111111111111111;
+			default: instruction=32'b0;
+		endcase
+	end
+endmodule
